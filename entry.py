@@ -3,7 +3,6 @@ import argparse
 import aioreloader
 
 from source import create_app
-from source.routes import setup_routes
 from source.configloader import load_config
 
 
@@ -27,6 +26,9 @@ if args.reload:
     print('Start with reload mode')
     aioreloader.start()
 
+# Creating an app with given config (if config isn't specified using the
+# console arguments '-c' or '--config' console arg, the app runs with
+# ./source/default_congig.yaml)
 config = load_config(args.config)
 app = create_app(config)
 
