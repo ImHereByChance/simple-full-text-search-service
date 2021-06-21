@@ -1,5 +1,5 @@
 CREATE TABLE document (id SERIAL PRIMARY KEY,
-                       created_date date,
+                       created_date timestamp,
                        document_text text,
                        rubrics_array text);
 

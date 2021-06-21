@@ -29,7 +29,7 @@ if __name__ == "__main__":
     def bulk_actions_gen(data):
         """generate dicts that describes document indexing action"""
         counter = 0
-        bulk_actions = ({'_index': 'posts', '_id': document_id, '_source': {'text': text}}
+        bulk_actions = ({'_index': 'posts', '_id': document_id, '_source': {'iD': document_id, 'text': text}}
                         for document_id, text in data if data is not None)
         for action in bulk_actions:
             yield action
