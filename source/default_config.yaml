@@ -1,3 +1,42 @@
 # Default configuration file
 ---
 foo: "bar"
+
+LOGGER_BASIC_LEVEL: 'INFO'
+
+LOGGER_CONFIG: {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'partial_deletion_formatter': {
+            'format': '[{asctime}] document id: {message}',
+            'style': '{'
+        }
+    },
+
+    'handlers': {
+        'partial_deletion_hander': {
+            'class': 'logging.FileHandler',
+            'filename': 'partial_deletion.log',
+            'level': 'ERROR',
+            'formatter': 'partial_deletion_formatter'
+        },
+        'partial_deletion_console': {
+            'class': 'logging.StreamHandler',
+            'level': 'ERROR',
+            'formatter': 'partial_deletion_formatter'
+        }
+    },
+
+    'loggers': {
+        'partial_deletion_logger': {
+            'level': 'ERROR',
+            'handlers': [
+                'partial_deletion_hander',
+                'partial_deletion_console'
+            ]
+        },
+    }
+
+}

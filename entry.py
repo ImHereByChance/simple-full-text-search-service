@@ -27,7 +27,8 @@ if args.reload:
     print('Start with reload mode')
     aioreloader.start()
 
-app = create_app(config=load_config(args.config))
+config = load_config(args.config)
+app = create_app(config)
 
 
 if __name__ == '__main__':
