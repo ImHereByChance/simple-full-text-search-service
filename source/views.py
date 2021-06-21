@@ -1,6 +1,6 @@
 import aiohttp
 import json
-import logging.config
+import logging
 from aiohttp import web
 
 
