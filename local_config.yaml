@@ -1,3 +1,3 @@
 # File for overwriting ./source/default_config.yaml
-
+---
 foo: 'baz'

@@ -9,14 +9,17 @@ DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / 'default_config.yaml'
 
 
 def create_app(config:dict=None):
+    """Create aiohttp.web.app instance."""
     if config is None:
         try:
             config = DEFAULT_CONFIG_PATH.open().read()
         except FileNotFoundError:
-            raise NoDefaultConfigFile('Cannot find default config.yaml' +
+            raise NoDefaultConfigFile('Cannot find default_config.yaml' +
                                       'it should be placed in ./source dir.')
+    
     app = web.Application()    
     app['config'] = config
+    
     setup_routes(app)
     
     return app
