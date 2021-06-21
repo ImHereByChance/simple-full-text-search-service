@@ -1,4 +1,4 @@
-import logging
+import logging.config
 from aiohttp import web
 from pathlib import Path
 
@@ -15,9 +15,13 @@ def create_app(config:dict):
     app['config'] = config
     
     # Logging settings.
-    logger_basic_level = app['config'].get('LOGGER_BASIC_LEVEL')
-    logging.basicConfig(level=logger_basic_level)
-           
+    logging.basicConfig(level=config['LOGGER_BASIC_LEVEL'])
+    logging.config.dictConfig(config['LOGGER_CONFIG'])
+    app['loggers'] = {
+        'partial_deletion_logger': logging.getLogger('partial_deletion_logger'),
+        'app_logger': logging.getLogger('aiohttp.server.app_logger')
+    }
+    
     # Routes.
     setup_routes(app)
     
