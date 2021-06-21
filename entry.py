@@ -6,12 +6,18 @@ from source import create_app
 from source.configloader import load_config
 
 
+# default_config (to get some default values before local config will be loaded)
+default_config = load_config()
+
+
 # console arguments
 arg_parser = argparse.ArgumentParser(description='App launcher parser')
-arg_parser.add_argument('--host', help='Host to listen', default='127.0.0.1')
+arg_parser.add_argument('--host', 
+                        help='Host to listen',
+                        default=default_config['HOST'])
 arg_parser.add_argument('--port', 
                         help='Port to accept connections',
-                        default=5000)
+                        default=default_config['PORT'])
 arg_parser.add_argument('--reload',
                         action='store_true',
                         help='Autoreload code on change')
