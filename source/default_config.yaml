@@ -1,45 +1,59 @@
 # Default configuration file
 ---
-foo: "bar"
+foo: bar
 
-LOGGER_BASIC_LEVEL: 'INFO'
+# Default host and port.
+HOST: 127.0.0.1
+
+PORT: 5000
+
+# Database
+DATABASE_CONFIG:
+    user: 'postgres'
+    password: ${DATABASE_PASSWORD}
+    host: '127.0.0.1'
+    port: '5432'
+    database: posts
+
+
+# logging settings
+LOGGER_BASIC_LEVEL: INFO
 
 LOGGER_CONFIG: {
-    'version': 1,
-    'disable_existing_loggers': False,
+    version: 1,
+    disable_existing_loggers: False,
 
-    'formatters': {
-        'partial_deletion_formatter': {
-            'format': '[{asctime}] document id: {message}',
-            'style': '{'
+    formatters: {
+        partial_deletion_formatter: {
+            format: '[{asctime}] document id: {message}',
+            style: '{'
         }
     },
 
-    'handlers': {
-        'partial_deletion_handler': {
-            'class': 'logging.FileHandler',
-            'filename': 'logs/partial_deletion.log',
-            'level': 'ERROR',
-            'formatter': 'partial_deletion_formatter'
+    handlers: {
+        partial_deletion_handler: {
+            class: logging.FileHandler,
+            filename: logs/partial_deletion.log,
+            level: ERROR,
+            formatter: partial_deletion_formatter
         },
-        'partial_deletion_console': {
-            'class': 'logging.StreamHandler',
-            'level': 'ERROR',
-            'formatter': 'partial_deletion_formatter'
+        partial_deletion_console: {
+            class: logging.StreamHandler,
+            level: ERROR,
+            formatter: partial_deletion_formatter
         }
     },
 
-    'loggers': {
-        'partial_deletion_logger': {
-            'level': 'ERROR',
-            'handlers': [
-                'partial_deletion_handler',
-                'partial_deletion_console'
+    loggers: {
+        partial_deletion_logger: {
+            level: ERROR,
+            handlers: [
+                partial_deletion_handler,
+                partial_deletion_console
             ]
         },
-        'aiohttp.server.app_logger': {
-            'level': DEBUG
+        aiohttp.server.app_logger: {
+            level: DEBUG
         }
     }
-
 }

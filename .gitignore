@@ -3,3 +3,4 @@
 __pycache__/
 misc/__pycache__/
 .vars.sh
+/logs/partial_deletion.log

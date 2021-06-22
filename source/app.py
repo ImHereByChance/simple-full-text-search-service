@@ -1,7 +1,7 @@
 import logging.config
 from aiohttp import web
-from pathlib import Path
 
+from .dbase import DBaseHandler
 from .routes import setup_routes
 
 
@@ -24,5 +24,8 @@ def create_app(config:dict):
     
     # Routes.
     setup_routes(app)
+
+    # Database.
+    app['dbase'] = DBaseHandler(dbase_config=config['DATABASE_CONFIG'])
     
     return app
