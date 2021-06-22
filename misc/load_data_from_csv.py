@@ -35,9 +35,9 @@ async def create_tables_and_indexes(db_config):
     conn = await asyncpg.connect(**db_config)
     statement = """
         CREATE TABLE document (id SERIAL PRIMARY KEY,
-                        created_date timestamp,
-                        document_text text,
-                        rubrics_array text);
+                               created_date timestamp,
+                               document_text text,
+                               rubrics_array text);
 
         CREATE INDEX document_dates_desc_idx ON document(created_date); 
     """
