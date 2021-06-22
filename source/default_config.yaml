@@ -16,6 +16,12 @@ DATABASE_CONFIG:
     database: posts
 
 
+# Elasticsearch
+ELASTICSEARCH_CONFIG:
+    host: 'localhost'
+    port: 9200
+
+
 # logging settings
 LOGGER_BASIC_LEVEL: INFO
 
