@@ -34,7 +34,8 @@ class IndexEndPoint(web.View):
         return web.json_response(data=self.request.app['config'])
 
 
-class Document(web.View, AppConfigMixin):
+class Post(web.View, AppConfigMixin):
+    """Getting and deleting posts. """
 
     async def get(self):
         """GET /posts/:id"""
