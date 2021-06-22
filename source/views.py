@@ -19,15 +19,15 @@ class AppConfigMixin:  # TODO: refactor this
     @property
     def app_logger(self):
         return self.request.app['loggers'].get('app_logger')
-    
-    @property 
+
+    @property
     def partial_deletion_logger(self):
         return self.request.app['loggers'].get('partial_deletion_logger')
 
 
 class IndexEndPoint(web.View):
     """ / """
-    
+
     async def get(self):
         """GET /"""
         # TODO: return API documentation instead
@@ -38,13 +38,13 @@ class Document(web.View, AppConfigMixin):
 
     async def get(self):
         """GET /posts/:id"""
-        
+
         try:
             # get and check id
             document_id = self.request.match_info['document_id']
             if not document_id.isdigit():
                 raise IdNotDigitError(f'document id cannot be {document_id}')
-        
+
             # get document from dbase
             result = await self.dbase.get_by_id(document_id)
             if result:
@@ -53,7 +53,7 @@ class Document(web.View, AppConfigMixin):
             else:
                 return web.json_response(data={'error': 'document not found'},
                                          status=404)
-        
+
         except IdNotDigitError:
             error_msg = 'document not found or wrong type of id'
             return web.json_response(data={'error': error_msg}, status=404)
@@ -67,7 +67,7 @@ class Document(web.View, AppConfigMixin):
 
     async def delete(self):
         """DELETE /posts/:id"""
-        
+
         try:
             # get and check id
             document_id = self.request.match_info['document_id']
@@ -132,7 +132,7 @@ class Document(web.View, AppConfigMixin):
                 self.partial_deletion_logger.exception(
                     f'{document_id} (presumably)'
                 )
-        
+
         return status_code
 
     async def _delete_from_db(self, document_id: int) -> str:
@@ -158,13 +158,17 @@ class Document(web.View, AppConfigMixin):
 
 
 class Search(web.View, AppConfigMixin):
+    """ Endpoint for full text search in documents.
+    Searches through Elasticsearch index and returns matched documents
+    with additional metadata from the database.
+    """
     async def get(self):
         """GET /search?q=string%20for%20quering"""
         try:
             search_query = self.request.query['q']
             id_list = await self._make_req_to_elastic(search_query)
             search_results = await self.dbase.get_by_id_list(id_list)
-            search_results_json = json.dumps(obj= {'results': search_results},
+            search_results_json = json.dumps(obj={'results': search_results},
                                              ensure_ascii=False)
             return web.Response(body=search_results_json,
                                 content_type='application/json')
