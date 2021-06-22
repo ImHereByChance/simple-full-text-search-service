@@ -1,10 +1,8 @@
-import aiohttp
 import json
-import logging
 from aiohttp import web
 
 from elasticsearch.exceptions import NotFoundError
-from .exceptions import FailToDeleteFromIndex, PartialDeletion
+from .exceptions import FailToDeleteFromIndex, PartialDeletionError, IdNotDigitError
 
 
 class AppConfigMixin:  # TODO: refactor this
@@ -27,24 +25,27 @@ class AppConfigMixin:  # TODO: refactor this
         return self.request.app['loggers'].get('partial_deletion_logger')
 
 
+class IndexEndPoint(web.View):
+    """ / """
+    
+    async def get(self):
+        """GET /"""
+        # TODO: return API documentation instead
+        return web.json_response(data=self.request.app['config'])
+
+
 class Document(web.View, AppConfigMixin):
 
     async def get(self):
         """GET /posts/:id"""
-        # check id
-        try:
-            document_id = int(self.request.match_info['document_id'])
-        except ValueError:
-            return web.json_response(data={'error': 'not found'}, status=404)
-        except:
-            log_msg = ' Exception during hadeling request: {method} {path}'
-            self.app_logger.exception(log_msg.format(method=self.request.method,
-                                                     path=self.request.path))
-            return web.json_response(data={'error': 'internal server error'},
-                                     status=500)
         
-        # get from dbase
         try:
+            # get and check id
+            document_id = self.request.match_info['document_id']
+            if not document_id.isdigit():
+                raise IdNotDigitError(f'document id cannot be {document_id}')
+        
+            # get document from dbase
             result = await self.dbase.get_by_id(document_id)
             if result:
                 json_result = json.dumps(dict(result), ensure_ascii=False)
@@ -52,31 +53,27 @@ class Document(web.View, AppConfigMixin):
             else:
                 return web.json_response(data={'error': 'document not found'},
                                          status=404)
+        
+        except IdNotDigitError:
+            error_msg = 'document not found or wrong type of id'
+            return web.json_response(data={'error': error_msg}, status=404)
+
         except:
             log_msg = ' Exception during hadeling request: {method} {path}'
             self.app_logger.exception(log_msg.format(method=self.request.method,
                                                      path=self.request.path))
-
             return web.json_response(data={'error': 'internal server error'},
                                      status=500)
 
     async def delete(self):
         """DELETE /posts/:id"""
         
-        # check id
         try:
-            document_id = int(self.request.match_info['document_id'])
-        except ValueError:
-            return web.json_response(data={'error': 'not found'}, status=404)
-        except:
-            log_msg = ' Exception during hadeling request: {method} {path}'
-            self.app_logger.exception(log_msg.format(method=self.request.method,
-                                                     path=self.request.path))
-            return web.json_response(data={'error': 'internal server error'},
-                                     status=500)
-        
-        # delete from elastic and postgres
-        try:
+            # get and check id
+            document_id = self.request.match_info['document_id']
+            if not document_id.isdigit():
+                raise IdNotDigitError(f'document id cannot be {document_id}')
+
             # delete from Elasticsearch index
             deletion_from_index_status = await self._delete_from_index(document_id)
             if deletion_from_index_status == 200:
@@ -91,7 +88,11 @@ class Document(web.View, AppConfigMixin):
             success_msg = f'document successfully deleted (id: {document_id})'
             return web.json_response(data={'result': success_msg}, status=200)
 
-        except PartialDeletion:
+        except IdNotDigitError:
+            error_msg = 'document not found or wrong type of id'
+            return web.json_response(data={'error': error_msg}, status=404)
+
+        except PartialDeletionError:
             self.partial_deletion_logger.exception(document_id)
             error_msg = 'failed to delete: internal server error'
             return web.json_response(data={'error': error_msg}, status=500)
@@ -101,7 +102,6 @@ class Document(web.View, AppConfigMixin):
                 f'Failed to delete document with id:{document_id}')
             error_msg = 'failed to delete: internal server error'
             return web.json_response(data={'error': error_msg}, status=500)
-
 
     async def _delete_from_index(self, document_id: int) -> int:
         """ Takes a document id and removes it from the Elasticsearch
@@ -136,6 +136,11 @@ class Document(web.View, AppConfigMixin):
         return status_code
 
     async def _delete_from_db(self, document_id: int) -> str:
+        """ Deletes a document from the database by id. On failure,
+        calls PartialDeletionError, which means that the document was
+        deleted from the elastic index, but not from the database,
+        and the two storages are not consistent. 
+        """
         try:
             delete_conformation_string = await self.dbase.delete_by_id(document_id)
 
@@ -149,16 +154,7 @@ class Document(web.View, AppConfigMixin):
                 self.app_logger.warning(log_msg)
             return 'ok'
         except:
-            raise PartialDeletion(document_id)
-
-
-class IndexEndPoint(web.View):
-    """ / """
-    
-    async def get(self):
-        """GET /"""
-        # TODO: return API documentation instead
-        return web.json_response(data=self.request.app['config'])
+            raise PartialDeletionError(document_id)
 
 
 class Search(web.View, AppConfigMixin):
