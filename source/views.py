@@ -164,7 +164,7 @@ class Search(web.View, AppConfigMixin):
     with additional metadata from the database.
     """
     async def get(self):
-        """GET /search?q=string%20for%20quering"""
+        """GET /posts/search?q=string%20for%20quering"""
         try:
             search_query = self.request.query['q']
             id_list = await self._make_req_to_elastic(search_query)
