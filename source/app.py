@@ -22,7 +22,7 @@ def create_app(config:dict):
     app['dbase'] = DBaseHandler(dbase_config=config['DATABASE_CONFIG'])
     
     # Elasticsearch.
-    app['es'] = AsyncElasticsearch(**config['ELASTICSEARCH_CONFIG'])
+    app['elastic'] = AsyncElasticsearch(**config['ELASTICSEARCH_CONFIG'])
 
     # Logging settings.
     logging.basicConfig(level=config['LOGGER_BASIC_LEVEL'])

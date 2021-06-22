@@ -6,6 +6,20 @@ import logging
 from aiohttp import web
 
 
+class AppConfigMixin:
+    @property
+    def dbase(self):
+        return self.request.app['dbase']
+
+    @property
+    def elastic(self):
+        return self.request.app['elastic']
+
+    @property
+    def app_logger(self):
+        return self.request.app['loggers'].get('app_logger')
+
+
 class IndexEndPoint(web.View):
     """ / """
     
@@ -15,22 +29,7 @@ class IndexEndPoint(web.View):
         return web.json_response(data=self.request.app['config'])
 
 
-class Search(web.View):
-    
-    @property
-    def dbase(self):
-        return self.request.app['dbase']
-
-    @property
-    def es(self):
-        return self.request.app['es']
-
-    @property
-    def app_logger(self):
-        return self.request.app['loggers'].get('app_logger')
-
-
-
+class Search(web.View, AppConfigMixin):
     async def get(self):
         """GET /search?q=string%20for%20quering"""
         try:
@@ -64,7 +63,7 @@ class Search(web.View):
             "size": 20
         }
 
-        hits_dict = await self.es.search(
+        hits_dict = await self.elastic.search(
             index='posts',
             body=search_query_dict,
             filter_path=['hits.hits._source.iD']
@@ -72,7 +71,7 @@ class Search(web.View):
 
         if hits_dict:
             id_list = [dct['_source']['iD']
-                        for dct in hits_dict['hits']['hits']]
+                       for dct in hits_dict['hits']['hits']]
             return id_list
         else:
             return []
