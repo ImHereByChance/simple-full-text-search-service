@@ -52,19 +52,20 @@ class Post(web.View, AppConfigMixin):
                 json_result = json.dumps(dict(result), ensure_ascii=False)
                 return web.json_response(body=json_result)
             else:
-                return web.json_response(data={'error': 'document not found'},
-                                         status=404)
+                error_dict = {'code': 404, 'message': 'document not found'}
+                return web.json_response(data=error_dict, status=404)
 
         except IdNotDigitError:
-            error_msg = 'document not found or wrong type of id'
-            return web.json_response(data={'error': error_msg}, status=404)
+            error_dict = {'code': 404,
+                          'message': 'document not found or wrong type of id'}
+            return web.json_response(data=error_dict, status=404)
 
         except:
             log_msg = ' Exception during hadeling request: {method} {path}'
             self.app_logger.exception(log_msg.format(method=self.request.method,
                                                      path=self.request.path))
-            return web.json_response(data={'error': 'internal server error'},
-                                     status=500)
+            error_dict = {'code': 500, 'message': 'internal server error'}                                     
+            return web.json_response(data=error_dict, status=500)
 
     async def delete(self):
         """DELETE /posts/:id"""
@@ -80,8 +81,8 @@ class Post(web.View, AppConfigMixin):
             if deletion_from_index_status == 200:
                 pass
             elif deletion_from_index_status == 404:
-                return web.json_response(data={'error': 'document not found'},
-                                         status=404)
+                error_dict = {'code': 404, 'message': 'document not found'}
+                return web.json_response(data=error_dict, status=404)
 
             # delete from Postgres db
             await self._delete_from_db(document_id)
@@ -90,19 +91,23 @@ class Post(web.View, AppConfigMixin):
             return web.json_response(data={'result': success_msg}, status=200)
 
         except IdNotDigitError:
-            error_msg = 'document not found or wrong type of id'
-            return web.json_response(data={'error': error_msg}, status=404)
+            error_dict = {'code': 404,
+                          'message': 'document not found or wrong type of id'}
+            return web.json_response(data=error_dict, status=404)
 
         except PartialDeletionError:
             self.partial_deletion_logger.exception(document_id)
-            error_msg = 'failed to delete: internal server error'
-            return web.json_response(data={'error': error_msg}, status=500)
+            error_dict = {'code': 500,
+                          'message': 'failed to delete: internal server error'}
+            return web.json_response(data=error_dict, status=500)
 
         except:
-            self.app_logger.exception(
-                f'Failed to delete document with id:{document_id}')
-            error_msg = 'failed to delete: internal server error'
-            return web.json_response(data={'error': error_msg}, status=500)
+            log_msg =f'Failed to delete document with id:{document_id}'
+            self.app_logger.exception(log_msg)
+
+            error_dict = {'code': 500, 
+                          'message': 'failed to delete: internal server error'}
+            return web.json_response(data=error_dict, status=500)
 
     async def _delete_from_index(self, document_id: int) -> int:
         """ Takes a document id and removes it from the Elasticsearch
@@ -174,12 +179,12 @@ class Search(web.View, AppConfigMixin):
             return web.Response(body=search_results_json,
                                 content_type='application/json')
         except KeyError:
-            return web.json_response(data={'error': 'no search query suplied'},
-                                     status=400)
+            error_dict = {'code': 400, 'message': 'no search query suplied'}
+            return web.json_response(data=error_dict, status=400)
         except:
             self.app_logger.exception('Exception during search.')
-            return web.json_response(data={'error': 'internal server error'},
-                                     status=500)
+            error_dict = {'code': 500, 'message': 'internal server error'}
+            return web.json_response(data=error_dict, status=500)
 
     async def _make_req_to_elastic(self, query_string: str) -> list:
         """Search through documents in the ElasticSearch index.
