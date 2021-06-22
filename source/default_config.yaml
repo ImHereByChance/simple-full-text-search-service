@@ -1,6 +1,5 @@
 # Default configuration file
 ---
-foo: bar
 
 # Default host and port.
 HOST: 127.0.0.1
