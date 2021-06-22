@@ -1,0 +1,36 @@
+[2021-06-22 05:28:10,881] document id: 501
+Traceback (most recent call last):
+  File "/home/emil/Documents/Projects/elastic_simple_engine/source/views.py", line 145, in _delete_from_db
+    log_msg = str(
+TypeError: decoding str is not supported
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/emil/Documents/Projects/elastic_simple_engine/source/views.py", line 89, in delete
+    await self._delete_from_db(document_id)
+  File "/home/emil/Documents/Projects/elastic_simple_engine/source/views.py", line 151, in _delete_from_db
+    raise PartialDeletion(document_id)
+source.exceptions.PartialDeletion: 501
+[2021-06-22 15:28:20,030] document id: 505 (presumably)
+Traceback (most recent call last):
+  File "/home/emil/Documents/Projects/elastic_simple_engine/source/views.py", line 114, in _delete_from_index
+    response = await self.elastic.delete(index='posts', id=document_id)
+  File "/home/emil/Documents/Projects/elastic_simple_engine/env/lib/python3.8/site-packages/elasticsearch/_async/client/__init__.py", line 608, in delete
+    return await self.transport.perform_request(
+  File "/home/emil/Documents/Projects/elastic_simple_engine/env/lib/python3.8/site-packages/elasticsearch/_async/transport.py", line 329, in perform_request
+    raise e
+  File "/home/emil/Documents/Projects/elastic_simple_engine/env/lib/python3.8/site-packages/elasticsearch/_async/transport.py", line 296, in perform_request
+    status, headers, data = await connection.perform_request(
+  File "/home/emil/Documents/Projects/elastic_simple_engine/env/lib/python3.8/site-packages/elasticsearch/_async/http_aiohttp.py", line 339, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "/home/emil/Documents/Projects/elastic_simple_engine/env/lib/python3.8/site-packages/elasticsearch/connection/base.py", line 330, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"posts","_type":"_doc","_id":"505","_version":3,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1605,"_primary_term":9}')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/emil/Documents/Projects/elastic_simple_engine/source/views.py", line 128, in _delete_from_index
+    log_msg = str(
+TypeError: decoding str is not supported

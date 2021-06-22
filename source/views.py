@@ -1,12 +1,15 @@
-from elasticsearch.client import indices
-from source import dbase
 import aiohttp
 import json
 import logging
 from aiohttp import web
 
+from elasticsearch.exceptions import NotFoundError
+from .exceptions import FailToDeleteFromIndex, PartialDeletion
 
-class AppConfigMixin:
+
+class AppConfigMixin:  # TODO: refactor this
+    """A Mixin with shortcuts for self.request.app['...'] dict items"""
+
     @property
     def dbase(self):
         return self.request.app['dbase']
@@ -18,6 +21,135 @@ class AppConfigMixin:
     @property
     def app_logger(self):
         return self.request.app['loggers'].get('app_logger')
+    
+    @property 
+    def partial_deletion_logger(self):
+        return self.request.app['loggers'].get('partial_deletion_logger')
+
+
+class Document(web.View, AppConfigMixin):
+
+    async def get(self):
+        """GET /posts/:id"""
+        # check id
+        try:
+            document_id = int(self.request.match_info['document_id'])
+        except ValueError:
+            return web.json_response(data={'error': 'not found'}, status=404)
+        except:
+            log_msg = ' Exception during hadeling request: {method} {path}'
+            self.app_logger.exception(log_msg.format(method=self.request.method,
+                                                     path=self.request.path))
+            return web.json_response(data={'error': 'internal server error'},
+                                     status=500)
+        
+        # get from dbase
+        try:
+            result = await self.dbase.get_by_id(document_id)
+            if result:
+                json_result = json.dumps(dict(result), ensure_ascii=False)
+                return web.json_response(body=json_result)
+            else:
+                return web.json_response(data={'error': 'document not found'},
+                                         status=404)
+        except:
+            log_msg = ' Exception during hadeling request: {method} {path}'
+            self.app_logger.exception(log_msg.format(method=self.request.method,
+                                                     path=self.request.path))
+
+            return web.json_response(data={'error': 'internal server error'},
+                                     status=500)
+
+    async def delete(self):
+        """DELETE /posts/:id"""
+        
+        # check id
+        try:
+            document_id = int(self.request.match_info['document_id'])
+        except ValueError:
+            return web.json_response(data={'error': 'not found'}, status=404)
+        except:
+            log_msg = ' Exception during hadeling request: {method} {path}'
+            self.app_logger.exception(log_msg.format(method=self.request.method,
+                                                     path=self.request.path))
+            return web.json_response(data={'error': 'internal server error'},
+                                     status=500)
+        
+        # delete from elastic and postgres
+        try:
+            # delete from Elasticsearch index
+            deletion_from_index_status = await self._delete_from_index(document_id)
+            if deletion_from_index_status == 200:
+                pass
+            elif deletion_from_index_status == 404:
+                return web.json_response(data={'error': 'document not found'},
+                                         status=404)
+
+            # delete from Postgres db
+            await self._delete_from_db(document_id)
+
+            success_msg = f'document successfully deleted (id: {document_id})'
+            return web.json_response(data={'result': success_msg}, status=200)
+
+        except PartialDeletion:
+            self.partial_deletion_logger.exception(document_id)
+            error_msg = 'failed to delete: internal server error'
+            return web.json_response(data={'error': error_msg}, status=500)
+
+        except:
+            self.app_logger.exception(
+                f'Failed to delete document with id:{document_id}')
+            error_msg = 'failed to delete: internal server error'
+            return web.json_response(data={'error': error_msg}, status=500)
+
+
+    async def _delete_from_index(self, document_id: int) -> int:
+        """ Takes a document id and removes it from the Elasticsearch
+        index. Returns 200 if succeeded, 404 if document with the
+        suplied id does not exist in index or raises
+        FailToDeleteFromIndex if something went wrong during deletion.
+        """
+
+        try:
+            response = await self.elastic.delete(index='posts', id=document_id)
+            if response['result'] == 'deleted':
+                status_code = 200
+            else:
+                raise FailToDeleteFromIndex(document_id)
+        except NotFoundError:  # response status 404
+            status_code = 404
+            try:
+                # To avoide situations when a document with given id
+                # exists in database, but don't in Elastic index.
+                # Delete the inconsistent data from the db anyway and
+                # log this.
+                if await self.dbase.row_exists(document_id):
+                    await self.dbase.delete_by_id(document_id)
+                    log_msg = f"There was a document with id {document_id} "\
+                              + "in DB but not in index"
+                    self.app_logger.warning(log_msg)
+            except:
+                self.partial_deletion_logger.exception(
+                    f'{document_id} (presumably)'
+                )
+        
+        return status_code
+
+    async def _delete_from_db(self, document_id: int) -> str:
+        try:
+            delete_conformation_string = await self.dbase.delete_by_id(document_id)
+
+            # `True` means that we have successfully deleted a document by id
+            # Elastic, but there is no row with such id in Postgres. Now the
+            # data in both storages seems to be consistent, but perhaps we
+            # need to figure out why this happened
+            if delete_conformation_string == 'DELETE 0':
+                log_msg = f"There was a document with id: {document_id} "\
+                          + "in index but not in DB"
+                self.app_logger.warning(log_msg)
+            return 'ok'
+        except:
+            raise PartialDeletion(document_id)
 
 
 class IndexEndPoint(web.View):
