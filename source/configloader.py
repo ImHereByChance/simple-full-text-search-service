@@ -1,5 +1,5 @@
 from pathlib import Path
-import yaml
+from pyaml_env import parse_config
 
 from .exceptions import NoDefaultConfigFile
 
@@ -15,14 +15,14 @@ def load_config(config_file=None)-> dict:
     
     # load default configuration file first
     try:
-        config = yaml.safe_load(DEFAULT_CONFIG_FILE_PATH.open())
+        config = parse_config(DEFAULT_CONFIG_FILE_PATH.as_posix())
     except FileNotFoundError:
         raise NoDefaultConfigFile('Cannot find default_config.yaml:' +
                                   'it should be placed in ./source dir.')
 
     # overwrite default configs with the values from config_file arg.
     if config_file is not None:
-        custom_config = yaml.safe_load(config_file)
+        custom_config = parse_config(config_file)
         config.update(**custom_config)
 
     return config

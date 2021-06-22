@@ -1,6 +1,7 @@
 import aiohttp
 import argparse
 import aioreloader
+from pathlib import Path
 
 from source import create_app
 from source.configloader import load_config
@@ -22,8 +23,8 @@ arg_parser.add_argument('--reload',
                         action='store_true',
                         help='Autoreload code on change')
 arg_parser.add_argument('-c', '--config',
-                        type=argparse.FileType('r'),
                         help='Path to the config file (yaml)',
+                        type=Path,
                         default=None)
 args = arg_parser.parse_args()
 
