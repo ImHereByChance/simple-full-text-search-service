@@ -87,8 +87,12 @@ class Post(web.View, AppConfigMixin):
             # delete from Postgres db
             await self._delete_from_db(document_id)
 
-            success_msg = f'document successfully deleted (id: {document_id})'
-            return web.json_response(data={'result': success_msg}, status=200)
+            # return message about successfull deletion
+            success_resp_dict = {
+                'code': 200,
+                'message':f'document successfully deleted (id: {document_id})'
+            }
+            return web.json_response(data=success_resp_dict, status=200)
 
         except IdNotDigitError:
             error_dict = {'code': 404,
