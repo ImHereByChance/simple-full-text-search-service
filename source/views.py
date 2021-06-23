@@ -30,8 +30,15 @@ class IndexEndPoint(web.View):
 
     async def get(self):
         """GET /"""
-        # TODO: return API documentation instead
-        return web.json_response(data=self.request.app['config'])
+        
+        response = {
+            'instructions': {
+                'search': 'GET /posts/search?q=string%20for%20quering',
+                'get_post_by_id': 'GET /posts/:id',
+                'delete_post_by_id': 'DELETE /posts/:id'
+            }
+        }
+        return web.json_response(data=response)
 
 
 class Post(web.View, AppConfigMixin):
