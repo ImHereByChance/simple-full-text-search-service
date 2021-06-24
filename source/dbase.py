@@ -9,9 +9,9 @@ class DBaseHandler():
         #           port: ... , database: ... }
         self.dbase_config = dbase_config
 
-    async def get_by_id_list(self, id_list: list) -> list:
-        """ Query the list of ids and return a list of dicts, where
-        dicts are rows from the table that match the query.
+    async def get_by_id_list(self, id_list: list) -> list
+        """ Takes a list of identifiers (as ints) and returns a list of dicts,
+        where dicts are the rows from the table that match the query.
         """
         if not id_list:
             return id_list
