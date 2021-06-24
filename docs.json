@@ -112,7 +112,7 @@
                 "operationId": "deletePost",
                 "responses": {
                     "200": {
-                        "description": "Internal server error",
+                        "description": "Document successfully deleted",
                         "content": {
                             "application/json": {
                                 "schema": {
