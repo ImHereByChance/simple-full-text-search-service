@@ -39,6 +39,8 @@ if args.reload:
 config = load_config(args.config)
 app = create_app(config)
 
+print('after if __name__...')
 
 if __name__ == '__main__':
+    print('Initializing...')
     aiohttp.web.run_app(app, host=args.host, port=args.port)

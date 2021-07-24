@@ -1,0 +1,1178 @@
+^C# clear builtins._
+# clear sys.path
+# clear sys.argv
+# clear sys.ps1
+# clear sys.ps2
+# clear sys.last_type
+# clear sys.last_value
+# clear sys.last_traceback
+# clear sys.path_hooks
+# clear sys.path_importer_cache
+# clear sys.meta_path
+# clear sys.__interactivehook__
+# restore sys.stdin
+# restore sys.stdout
+# restore sys.stderr
+# cleanup[2] removing sys
+# cleanup[2] removing builtins
+# cleanup[2] removing _frozen_importlib
+# cleanup[2] removing _imp
+# cleanup[2] removing _thread
+# cleanup[2] removing _warnings
+# cleanup[2] removing _weakref
+# cleanup[2] removing _io
+# cleanup[2] removing marshal
+# cleanup[2] removing posix
+# cleanup[2] removing _frozen_importlib_external
+# cleanup[2] removing time
+# cleanup[2] removing zipimport
+# destroy zipimport
+# cleanup[2] removing _codecs
+# cleanup[2] removing codecs
+# cleanup[2] removing encodings.aliases
+# cleanup[2] removing encodings
+# cleanup[2] removing encodings.utf_8
+# cleanup[2] removing _signal
+# cleanup[2] removing encodings.latin_1
+# cleanup[2] removing _abc
+# cleanup[2] removing abc
+# cleanup[2] removing io
+# cleanup[2] removing __main__
+# destroy __main__
+# cleanup[2] removing _stat
+# cleanup[2] removing stat
+# cleanup[2] removing _collections_abc
+# cleanup[2] removing genericpath
+# cleanup[2] removing posixpath
+# cleanup[2] removing os.path
+# cleanup[2] removing os
+# cleanup[2] removing _sitebuiltins
+# cleanup[2] removing _locale
+# cleanup[2] removing _bootlocale
+# destroy _bootlocale
+# cleanup[2] removing site
+# destroy site
+# cleanup[2] removing _heapq
+# cleanup[2] removing heapq
+# cleanup[2] removing itertools
+# cleanup[2] removing keyword
+# cleanup[2] removing _operator
+# cleanup[2] removing operator
+# cleanup[2] removing reprlib
+# cleanup[2] removing _collections
+# cleanup[2] removing collections
+# cleanup[2] removing collections.abc
+# cleanup[2] removing types
+# cleanup[2] removing _functools
+# cleanup[2] removing functools
+# cleanup[2] removing contextlib
+# cleanup[2] removing enum
+# cleanup[2] removing _sre
+# cleanup[2] removing sre_constants
+# destroy sre_constants
+# cleanup[2] removing sre_parse
+# cleanup[2] removing sre_compile
+# cleanup[2] removing copyreg
+# cleanup[2] removing re
+# cleanup[2] removing typing
+# cleanup[2] removing multidict._abc
+# cleanup[2] removing errno
+# cleanup[2] removing signal
+# cleanup[2] removing _weakrefset
+# destroy _weakrefset
+# cleanup[2] removing threading
+# cleanup[2] removing warnings
+# cleanup[2] removing pwd
+# cleanup[2] removing grp
+# cleanup[2] removing _posixsubprocess
+# cleanup[2] removing select
+# cleanup[2] removing math
+# cleanup[2] removing selectors
+# cleanup[2] removing subprocess
+# cleanup[2] removing platform
+# cleanup[2] removing multidict._multidict_base
+# cleanup[2] removing multidict._multidict
+# cleanup[2] removing multidict._compat
+# cleanup[2] removing multidict
+# destroy multidict
+# destroy multidict._abc
+# destroy multidict._compat
+# cleanup[2] removing aiohttp.hdrs
+# cleanup[2] removing concurrent
+# cleanup[2] removing token
+# cleanup[2] removing tokenize
+# cleanup[2] removing linecache
+# cleanup[2] removing traceback
+# cleanup[2] removing weakref
+# cleanup[2] removing _string
+# cleanup[2] removing string
+# cleanup[2] removing atexit
+# cleanup[2] removing logging
+# cleanup[2] removing concurrent.futures._base
+# cleanup[2] removing concurrent.futures
+# cleanup[2] removing _socket
+# cleanup[2] removing array
+# cleanup[2] removing socket
+# cleanup[2] removing _ssl
+# cleanup[2] removing _struct
+# cleanup[2] removing struct
+# cleanup[2] removing binascii
+# cleanup[2] removing base64
+# cleanup[2] removing ssl
+# cleanup[2] removing asyncio.constants
+# cleanup[2] removing _ast
+# destroy _ast
+# cleanup[2] removing ast
+# cleanup[2] removing _opcode
+# cleanup[2] removing opcode
+# destroy opcode
+# cleanup[2] removing dis
+# cleanup[2] removing importlib._bootstrap
+# cleanup[2] removing importlib._bootstrap_external
+# cleanup[2] removing importlib
+# cleanup[2] removing importlib.machinery
+# cleanup[2] removing inspect
+# cleanup[2] removing asyncio.format_helpers
+# cleanup[2] removing asyncio.base_futures
+# cleanup[2] removing asyncio.log
+# cleanup[2] removing asyncio.coroutines
+# cleanup[2] removing _contextvars
+# cleanup[2] removing contextvars
+# cleanup[2] removing asyncio.exceptions
+# cleanup[2] removing asyncio.base_tasks
+# cleanup[2] removing _asyncio
+# cleanup[2] removing asyncio.events
+# cleanup[2] removing asyncio.futures
+# cleanup[2] removing asyncio.protocols
+# cleanup[2] removing asyncio.transports
+# cleanup[2] removing asyncio.sslproto
+# cleanup[2] removing asyncio.locks
+# cleanup[2] removing asyncio.tasks
+# cleanup[2] removing asyncio.staggered
+# cleanup[2] removing asyncio.trsock
+# cleanup[2] removing asyncio.base_events
+# cleanup[2] removing asyncio.runners
+# cleanup[2] removing asyncio.queues
+# cleanup[2] removing asyncio.streams
+# cleanup[2] removing asyncio.subprocess
+# cleanup[2] removing asyncio.threads
+# cleanup[2] removing asyncio.base_subprocess
+# cleanup[2] removing asyncio.selector_events
+# cleanup[2] removing asyncio.unix_events
+# cleanup[2] removing asyncio
+# cleanup[2] removing _hashlib
+# cleanup[2] removing _blake2
+# cleanup[2] removing hashlib
+# cleanup[2] removing _json
+# cleanup[2] removing json.scanner
+# cleanup[2] removing json.decoder
+# cleanup[2] removing json.encoder
+# cleanup[2] removing json
+# cleanup[2] removing __future__
+# destroy __future__
+# cleanup[2] removing attr._compat
+# cleanup[2] removing copy
+# cleanup[2] removing _uuid
+# cleanup[2] removing uuid
+# cleanup[2] removing attr._config
+# cleanup[2] removing attr.exceptions
+# cleanup[2] removing attr.setters
+# cleanup[2] removing attr._make
+# cleanup[2] removing attr.converters
+# cleanup[2] removing attr.filters
+# cleanup[2] removing attr.validators
+# cleanup[2] removing attr._cmp
+# cleanup[2] removing attr._funcs
+# cleanup[2] removing attr._version_info
+# cleanup[2] removing attr._next_gen
+# cleanup[2] removing attr
+# cleanup[2] removing ipaddress
+# cleanup[2] removing urllib
+# cleanup[2] removing urllib.parse
+# cleanup[2] removing idna.package_data
+# cleanup[2] removing idna.idnadata
+# cleanup[2] removing _bisect
+# cleanup[2] removing bisect
+# cleanup[2] removing unicodedata
+# cleanup[2] removing idna.intranges
+# cleanup[2] removing idna.core
+# cleanup[2] removing idna
+# cleanup[2] removing cython_runtime
+# cleanup[2] removing yarl._quoting_c
+# cleanup[2] removing yarl._quoting
+# cleanup[2] removing yarl._url
+# cleanup[2] removing yarl
+# cleanup[2] removing http
+# cleanup[2] removing _datetime
+# cleanup[2] removing datetime
+# cleanup[2] removing email
+# cleanup[2] removing _random
+# cleanup[2] removing _sha512
+# cleanup[2] removing random
+# cleanup[2] removing locale
+# cleanup[2] removing calendar
+# cleanup[2] removing email._parseaddr
+# cleanup[2] removing email.base64mime
+# cleanup[2] removing email.quoprimime
+# cleanup[2] removing email.errors
+# cleanup[2] removing quopri
+# cleanup[2] removing email.encoders
+# cleanup[2] removing email.charset
+# cleanup[2] removing email.utils
+# cleanup[2] removing html.entities
+# cleanup[2] removing html
+# cleanup[2] removing email.header
+# cleanup[2] removing email._policybase
+# cleanup[2] removing email.feedparser
+# cleanup[2] removing email.parser
+# cleanup[2] removing uu
+# cleanup[2] removing email._encoded_words
+# cleanup[2] removing email.iterators
+# cleanup[2] removing email.message
+# cleanup[2] removing http.client
+# cleanup[2] removing mimetypes
+# cleanup[2] removing fnmatch
+# cleanup[2] removing zlib
+# cleanup[2] removing _compression
+# cleanup[2] removing _bz2
+# destroy _bz2
+# cleanup[2] removing bz2
+# cleanup[2] removing _lzma
+# cleanup[2] removing lzma
+# cleanup[2] removing shutil
+# cleanup[2] removing socketserver
+# cleanup[2] removing http.server
+# cleanup[2] removing ntpath
+# cleanup[2] removing pathlib
+# cleanup[2] removing aiohttp.typedefs
+# cleanup[2] removing aiohttp.http_exceptions
+# cleanup[2] removing aiohttp.tcp_helpers
+# cleanup[2] removing aiohttp.base_protocol
+# cleanup[2] removing tempfile
+# cleanup[2] removing cgi
+# cleanup[2] removing shlex
+# cleanup[2] removing netrc
+# cleanup[2] removing urllib.response
+# cleanup[2] removing urllib.error
+# cleanup[2] removing urllib.request
+# cleanup[2] removing async_timeout
+# cleanup[2] removing typing_extensions
+# destroy typing_extensions
+# cleanup[2] removing aiohttp.log
+# cleanup[2] removing aiohttp._helpers
+# cleanup[2] removing aiohttp.helpers
+# cleanup[2] removing http.cookies
+# cleanup[2] removing aiohttp.abc
+# cleanup[2] removing aiohttp._http_writer
+# cleanup[2] removing aiohttp.http_writer
+# cleanup[2] removing aiohttp.streams
+# cleanup[2] removing _cython_0_29_21
+# destroy _cython_0_29_21
+# cleanup[2] removing aiohttp._http_parser
+# cleanup[2] removing aiohttp.http_parser
+# cleanup[2] removing aiohttp._websocket
+# cleanup[2] removing aiohttp.http_websocket
+# cleanup[2] removing aiohttp.http
+# cleanup[2] removing aiohttp.payload
+# cleanup[2] removing aiohttp.client_exceptions
+# cleanup[2] removing aiohttp.multipart
+# cleanup[2] removing aiohttp.formdata
+# cleanup[2] removing chardet.enums
+# cleanup[2] removing chardet.charsetprober
+# cleanup[2] removing chardet.charsetgroupprober
+# cleanup[2] removing chardet.codingstatemachine
+# cleanup[2] removing chardet.escsm
+# cleanup[2] removing chardet.escprober
+# cleanup[2] removing chardet.latin1prober
+# cleanup[2] removing chardet.mbcssm
+# cleanup[2] removing chardet.utf8prober
+# cleanup[2] removing chardet.mbcharsetprober
+# cleanup[2] removing chardet.euctwfreq
+# cleanup[2] removing chardet.euckrfreq
+# cleanup[2] removing chardet.gb2312freq
+# cleanup[2] removing chardet.big5freq
+# cleanup[2] removing chardet.jisfreq
+# cleanup[2] removing chardet.chardistribution
+# cleanup[2] removing chardet.jpcntx
+# cleanup[2] removing chardet.sjisprober
+# cleanup[2] removing chardet.eucjpprober
+# cleanup[2] removing chardet.gb2312prober
+# cleanup[2] removing chardet.euckrprober
+# cleanup[2] removing chardet.cp949prober
+# cleanup[2] removing chardet.big5prober
+# cleanup[2] removing chardet.euctwprober
+# cleanup[2] removing chardet.mbcsgroupprober
+# cleanup[2] removing chardet.hebrewprober
+# cleanup[2] removing chardet.sbcharsetprober
+# cleanup[2] removing chardet.langbulgarianmodel
+# cleanup[2] removing chardet.langgreekmodel
+# cleanup[2] removing chardet.langhebrewmodel
+# cleanup[2] removing chardet.langrussianmodel
+# cleanup[2] removing chardet.langthaimodel
+# cleanup[2] removing chardet.langturkishmodel
+# cleanup[2] removing chardet.sbcsgroupprober
+# cleanup[2] removing chardet.universaldetector
+# cleanup[2] removing chardet.version
+# cleanup[2] removing chardet
+# cleanup[2] removing aiohttp.client_reqrep
+# cleanup[2] removing aiohttp.client_ws
+# cleanup[2] removing aiohttp.client_proto
+# cleanup[2] removing aiohttp.locks
+# cleanup[2] removing aiohttp.resolver
+# cleanup[2] removing aiohttp.connector
+# cleanup[2] removing _compat_pickle
+# cleanup[2] removing _pickle
+# cleanup[2] removing pickle
+# cleanup[2] removing aiohttp.cookiejar
+# cleanup[2] removing aiohttp._frozenlist
+# cleanup[2] removing aiohttp.frozenlist
+# cleanup[2] removing aiohttp.signals
+# cleanup[2] removing aiohttp.tracing
+# cleanup[2] removing aiohttp.client
+# cleanup[2] removing aiohttp.payload_streamer
+# cleanup[2] removing aiohttp
+# cleanup[2] removing gettext
+# destroy gettext
+# cleanup[2] removing argparse
+# destroy argparse
+# cleanup[2] removing _queue
+# cleanup[2] removing queue
+# cleanup[2] removing concurrent.futures.thread
+# cleanup[2] removing aioreloader._contents
+# cleanup[2] removing aioreloader
+# destroy aioreloader
+# destroy aioreloader._contents
+# cleanup[2] removing logging.handlers
+# cleanup[2] removing logging.config
+# cleanup[2] removing aiohttp.web_response
+# cleanup[2] removing aiohttp.web_exceptions
+# cleanup[2] removing aiohttp.web_request
+# cleanup[2] removing aiohttp.web_log
+# cleanup[2] removing aiohttp.web_fileresponse
+# cleanup[2] removing aiohttp.web_routedef
+# cleanup[2] removing aiohttp.web_urldispatcher
+# cleanup[2] removing aiohttp.web_middlewares
+# cleanup[2] removing aiohttp.web_protocol
+# cleanup[2] removing aiohttp.web_server
+# cleanup[2] removing aiohttp.web_app
+# cleanup[2] removing aiohttp.web_runner
+# cleanup[2] removing aiohttp.web_ws
+# cleanup[2] removing aiohttp.web
+# cleanup[2] removing elasticsearch._version
+# cleanup[2] removing gzip
+# cleanup[2] removing elasticsearch.exceptions
+# cleanup[2] removing elasticsearch.connection.base
+# cleanup[2] removing elasticsearch.compat
+# cleanup[2] removing elasticsearch.utils
+# cleanup[2] removing elasticsearch.connection.http_requests
+# cleanup[2] removing urllib3.packages.ssl_match_hostname
+# cleanup[2] removing urllib3.packages
+# cleanup[2] removing importlib.abc
+# cleanup[2] removing importlib.util
+# cleanup[2] removing urllib3.packages.six
+# cleanup[2] removing urllib3.packages.six.moves
+# cleanup[2] removing urllib3.packages.six.moves.http_client
+# cleanup[2] removing urllib3.exceptions
+# cleanup[2] removing urllib3._version
+# cleanup[2] removing urllib3.contrib
+# cleanup[2] removing urllib3.contrib._appengine_environ
+# cleanup[2] removing urllib3.util.wait
+# cleanup[2] removing urllib3.util.connection
+# cleanup[2] removing urllib3.util.request
+# cleanup[2] removing urllib3.util.response
+# cleanup[2] removing urllib3.util.retry
+# cleanup[2] removing hmac
+# cleanup[2] removing urllib3.util.url
+# cleanup[2] removing urllib3.util.ssltransport
+# cleanup[2] removing urllib3.util.ssl_
+# cleanup[2] removing urllib3.util.timeout
+# cleanup[2] removing urllib3.util
+# cleanup[2] removing urllib3.util.proxy
+# cleanup[2] removing urllib3._collections
+# cleanup[2] removing urllib3.connection
+# cleanup[2] removing urllib3.fields
+# cleanup[2] removing urllib3.filepost
+# cleanup[2] removing urllib3.packages.six.moves.urllib
+# cleanup[2] removing urllib3.packages.six.moves.urllib.parse
+# cleanup[2] removing urllib3.request
+# cleanup[2] removing urllib3.response
+# cleanup[2] removing urllib3.util.queue
+# cleanup[2] removing urllib3.connectionpool
+# cleanup[2] removing urllib3.poolmanager
+# cleanup[2] removing urllib3
+# cleanup[2] removing zipfile
+# cleanup[2] removing importlib._common
+# cleanup[2] removing importlib.resources
+# cleanup[2] removing certifi.core
+# cleanup[2] removing certifi
+# cleanup[2] removing elasticsearch.connection.http_urllib3
+# cleanup[2] removing elasticsearch.connection
+# cleanup[2] removing elasticsearch.connection_pool
+# cleanup[2] removing numbers
+# destroy numbers
+# cleanup[2] removing _decimal
+# cleanup[2] removing decimal
+# cleanup[2] removing elasticsearch.serializer
+# cleanup[2] removing elasticsearch.transport
+# cleanup[2] removing elasticsearch.client.utils
+# cleanup[2] removing elasticsearch.client.async_search
+# cleanup[2] removing elasticsearch.client.autoscaling
+# cleanup[2] removing elasticsearch.client.cat
+# cleanup[2] removing elasticsearch.client.ccr
+# cleanup[2] removing elasticsearch.client.cluster
+# cleanup[2] removing elasticsearch.client.dangling_indices
+# cleanup[2] removing elasticsearch.client.data_frame
+# cleanup[2] removing elasticsearch.client.deprecation
+# cleanup[2] removing elasticsearch.client.enrich
+# cleanup[2] removing elasticsearch.client.eql
+# cleanup[2] removing elasticsearch.client.features
+# cleanup[2] removing elasticsearch.client.fleet
+# cleanup[2] removing elasticsearch.client.graph
+# cleanup[2] removing elasticsearch.client.ilm
+# cleanup[2] removing elasticsearch.client.indices
+# cleanup[2] removing elasticsearch.client.ingest
+# cleanup[2] removing elasticsearch.client.license
+# cleanup[2] removing elasticsearch.client.logstash
+# cleanup[2] removing elasticsearch.client.migration
+# cleanup[2] removing elasticsearch.client.ml
+# cleanup[2] removing elasticsearch.client.monitoring
+# cleanup[2] removing elasticsearch.client.nodes
+# cleanup[2] removing elasticsearch.client.remote
+# cleanup[2] removing elasticsearch.client.rollup
+# cleanup[2] removing elasticsearch.client.searchable_snapshots
+# cleanup[2] removing elasticsearch.client.security
+# cleanup[2] removing elasticsearch.client.shutdown
+# cleanup[2] removing elasticsearch.client.slm
+# cleanup[2] removing elasticsearch.client.snapshot
+# cleanup[2] removing elasticsearch.client.sql
+# cleanup[2] removing elasticsearch.client.ssl
+# cleanup[2] removing elasticsearch.client.tasks
+# cleanup[2] removing elasticsearch.client.text_structure
+# cleanup[2] removing elasticsearch.client.transform
+# cleanup[2] removing elasticsearch.client.watcher
+# cleanup[2] removing elasticsearch.client.xpack
+# cleanup[2] removing elasticsearch.client
+# cleanup[2] removing elasticsearch._async
+# cleanup[2] removing elasticsearch._async.compat
+# cleanup[2] removing elasticsearch._async._extra_imports
+# cleanup[2] removing elasticsearch._async.http_aiohttp
+# cleanup[2] removing elasticsearch._async.transport
+# cleanup[2] removing elasticsearch._async.client.utils
+# cleanup[2] removing elasticsearch._async.client.async_search
+# cleanup[2] removing elasticsearch._async.client.autoscaling
+# cleanup[2] removing elasticsearch._async.client.cat
+# cleanup[2] removing elasticsearch._async.client.ccr
+# cleanup[2] removing elasticsearch._async.client.cluster
+# cleanup[2] removing elasticsearch._async.client.dangling_indices
+# cleanup[2] removing elasticsearch._async.client.data_frame
+# cleanup[2] removing elasticsearch._async.client.deprecation
+# cleanup[2] removing elasticsearch._async.client.enrich
+# cleanup[2] removing elasticsearch._async.client.eql
+# cleanup[2] removing elasticsearch._async.client.features
+# cleanup[2] removing elasticsearch._async.client.fleet
+# cleanup[2] removing elasticsearch._async.client.graph
+# cleanup[2] removing elasticsearch._async.client.ilm
+# cleanup[2] removing elasticsearch._async.client.indices
+# cleanup[2] removing elasticsearch._async.client.ingest
+# cleanup[2] removing elasticsearch._async.client.license
+# cleanup[2] removing elasticsearch._async.client.logstash
+# cleanup[2] removing elasticsearch._async.client.migration
+# cleanup[2] removing elasticsearch._async.client.ml
+# cleanup[2] removing elasticsearch._async.client.monitoring
+# cleanup[2] removing elasticsearch._async.client.nodes
+# cleanup[2] removing elasticsearch._async.client.remote
+# cleanup[2] removing elasticsearch._async.client.rollup
+# cleanup[2] removing elasticsearch._async.client.searchable_snapshots
+# cleanup[2] removing elasticsearch._async.client.security
+# cleanup[2] removing elasticsearch._async.client.shutdown
+# cleanup[2] removing elasticsearch._async.client.slm
+# cleanup[2] removing elasticsearch._async.client.snapshot
+# cleanup[2] removing elasticsearch._async.client.sql
+# cleanup[2] removing elasticsearch._async.client.ssl
+# cleanup[2] removing elasticsearch._async.client.tasks
+# cleanup[2] removing elasticsearch._async.client.text_structure
+# cleanup[2] removing elasticsearch._async.client.transform
+# cleanup[2] removing elasticsearch._async.client.watcher
+# cleanup[2] removing elasticsearch._async.client.xpack
+# cleanup[2] removing elasticsearch._async.client
+# cleanup[2] removing elasticsearch
+# destroy elasticsearch
+# destroy elasticsearch._version
+# destroy elasticsearch.exceptions
+# destroy elasticsearch.compat
+# destroy elasticsearch.utils
+# destroy elasticsearch.connection
+# destroy elasticsearch.connection.base
+# destroy elasticsearch.connection.http_requests
+# destroy elasticsearch.connection.http_urllib3
+# destroy elasticsearch.connection_pool
+# destroy elasticsearch.serializer
+# destroy elasticsearch.transport
+# destroy elasticsearch.client
+# destroy elasticsearch._async
+# destroy elasticsearch._async.compat
+# destroy elasticsearch._async._extra_imports
+# destroy elasticsearch._async.http_aiohttp
+# destroy elasticsearch._async.transport
+# destroy elasticsearch._async.client
+# cleanup[2] removing asyncpg.compat
+# cleanup[2] removing termios
+# cleanup[2] removing getpass
+# cleanup[2] removing textwrap
+# cleanup[2] removing asyncpg.exceptions._base
+# cleanup[2] removing asyncpg.exceptions
+# cleanup[2] removing _cython_0_29_23
+# destroy _cython_0_29_23
+# cleanup[2] removing asyncpg.pgproto
+# cleanup[2] removing asyncpg.pgproto.types
+# cleanup[2] removing asyncpg.pgproto.pgproto
+# cleanup[2] removing asyncpg.types
+# cleanup[2] removing stringprep
+# cleanup[2] removing secrets
+# destroy secrets
+# cleanup[2] removing asyncpg.protocol.protocol
+# cleanup[2] removing asyncpg.protocol
+# cleanup[2] removing asyncpg.connect_utils
+# cleanup[2] removing asyncpg.connresource
+# cleanup[2] removing asyncpg.cursor
+# cleanup[2] removing asyncpg.introspection
+# cleanup[2] removing asyncpg.prepared_stmt
+# cleanup[2] removing asyncpg.serverversion
+# cleanup[2] removing asyncpg.transaction
+# cleanup[2] removing asyncpg.utils
+# cleanup[2] removing asyncpg.connection
+# cleanup[2] removing asyncpg.pool
+# cleanup[2] removing asyncpg._version
+# cleanup[2] removing asyncpg
+# cleanup[2] removing source.dbase
+# cleanup[2] removing source.exceptions
+# cleanup[2] removing source.views
+# cleanup[2] removing source.routes
+# cleanup[2] removing source.app
+# cleanup[2] removing source
+# destroy source
+# destroy source.dbase
+# destroy source.exceptions
+# destroy source.routes
+# destroy source.app
+# cleanup[2] removing yaml.error
+# cleanup[2] removing yaml.tokens
+# cleanup[2] removing yaml.events
+# cleanup[2] removing yaml.nodes
+# cleanup[2] removing yaml.reader
+# cleanup[2] removing yaml.scanner
+# cleanup[2] removing yaml.parser
+# cleanup[2] removing yaml.composer
+# cleanup[2] removing yaml.constructor
+# cleanup[2] removing yaml.resolver
+# cleanup[2] removing yaml.loader
+# cleanup[2] removing yaml.emitter
+# cleanup[2] removing yaml.serializer
+# cleanup[2] removing yaml.representer
+# cleanup[2] removing yaml.dumper
+# cleanup[2] removing yaml._yaml
+# cleanup[2] removing yaml.cyaml
+# cleanup[2] removing yaml
+# cleanup[2] removing pyaml_env.parse_config
+# destroy pyaml_env.parse_config
+# cleanup[2] removing pyaml_env.base_config
+# cleanup[2] removing pyaml_env
+# destroy pyaml_env
+# destroy pyaml_env.base_config
+# cleanup[2] removing source.configloader
+# destroy source.configloader
+# destroy _sitebuiltins
+# destroy aiohttp.typedefs
+# destroy aiohttp.http_exceptions
+# destroy aiohttp.tcp_helpers
+# destroy aiohttp.base_protocol
+# destroy aiohttp.log
+# destroy aiohttp.abc
+# destroy aiohttp.http_writer
+# destroy aiohttp.streams
+# destroy aiohttp.http_parser
+# destroy aiohttp.http_websocket
+# destroy aiohttp.formdata
+# destroy aiohttp.client_reqrep
+# destroy aiohttp.client_ws
+# destroy aiohttp.client_proto
+# destroy aiohttp.locks
+# destroy aiohttp.resolver
+# destroy aiohttp.connector
+# destroy aiohttp.cookiejar
+# destroy aiohttp.frozenlist
+# destroy aiohttp.signals
+# destroy aiohttp.tracing
+# destroy aiohttp.client
+# destroy aiohttp.payload_streamer
+# destroy aiohttp.web_response
+# destroy aiohttp.web_exceptions
+# destroy aiohttp.web_request
+# destroy aiohttp.web_log
+# destroy aiohttp.web_fileresponse
+# destroy aiohttp.web_routedef
+# destroy aiohttp.web_urldispatcher
+# destroy aiohttp.web_middlewares
+# destroy aiohttp.web_protocol
+# destroy aiohttp.web_server
+# destroy aiohttp.web_app
+# destroy aiohttp.web_runner
+# destroy aiohttp.web_ws
+# destroy elasticsearch.client.utils
+# destroy elasticsearch.client.async_search
+# destroy elasticsearch.client.autoscaling
+# destroy elasticsearch.client.cat
+# destroy elasticsearch.client.ccr
+# destroy elasticsearch.client.cluster
+# destroy elasticsearch.client.dangling_indices
+# destroy elasticsearch.client.data_frame
+# destroy elasticsearch.client.deprecation
+# destroy elasticsearch.client.enrich
+# destroy elasticsearch.client.eql
+# destroy elasticsearch.client.features
+# destroy elasticsearch.client.fleet
+# destroy elasticsearch.client.graph
+# destroy elasticsearch.client.ilm
+# destroy elasticsearch.client.indices
+# destroy elasticsearch.client.ingest
+# destroy elasticsearch.client.license
+# destroy elasticsearch.client.logstash
+# destroy elasticsearch.client.migration
+# destroy elasticsearch.client.ml
+# destroy elasticsearch.client.monitoring
+# destroy elasticsearch.client.nodes
+# destroy elasticsearch.client.remote
+# destroy elasticsearch.client.rollup
+# destroy elasticsearch.client.searchable_snapshots
+# destroy elasticsearch.client.security
+# destroy elasticsearch.client.shutdown
+# destroy elasticsearch.client.slm
+# destroy elasticsearch.client.snapshot
+# destroy elasticsearch.client.sql
+# destroy elasticsearch.client.ssl
+# destroy elasticsearch.client.tasks
+# destroy elasticsearch.client.text_structure
+# destroy elasticsearch.client.transform
+# destroy elasticsearch.client.watcher
+# destroy elasticsearch.client.xpack
+# destroy gzip
+# destroy urllib3.packages
+# destroy urllib3.packages.ssl_match_hostname
+# destroy urllib3.exceptions
+# destroy urllib3._version
+# destroy urllib3.contrib
+# destroy urllib3.util
+# destroy urllib3.util.wait
+# destroy urllib3.util.request
+# destroy urllib3.util.response
+# destroy urllib3.util.retry
+# destroy urllib3.util.url
+# destroy urllib3.util.ssltransport
+# destroy urllib3.util.ssl_
+# destroy urllib3.util.timeout
+# destroy urllib3.util.proxy
+# destroy urllib3.util.queue
+# destroy urllib3._collections
+# destroy urllib3.connection
+# destroy urllib3.fields
+# destroy urllib3.filepost
+# destroy urllib3.request
+# destroy urllib3.response
+# destroy urllib3.connectionpool
+# destroy urllib3.poolmanager
+# destroy urllib3.util.connection
+# destroy urllib3.contrib._appengine_environ
+# destroy urllib3.packages.six
+# destroy certifi.core
+# destroy elasticsearch._async.client.utils
+# destroy elasticsearch._async.client.async_search
+# destroy elasticsearch._async.client.autoscaling
+# destroy elasticsearch._async.client.cat
+# destroy elasticsearch._async.client.ccr
+# destroy elasticsearch._async.client.cluster
+# destroy elasticsearch._async.client.dangling_indices
+# destroy elasticsearch._async.client.data_frame
+# destroy elasticsearch._async.client.deprecation
+# destroy elasticsearch._async.client.enrich
+# destroy elasticsearch._async.client.eql
+# destroy elasticsearch._async.client.features
+# destroy elasticsearch._async.client.fleet
+# destroy elasticsearch._async.client.graph
+# destroy elasticsearch._async.client.ilm
+# destroy elasticsearch._async.client.indices
+# destroy elasticsearch._async.client.ingest
+# destroy elasticsearch._async.client.license
+# destroy elasticsearch._async.client.logstash
+# destroy elasticsearch._async.client.migration
+# destroy elasticsearch._async.client.ml
+# destroy elasticsearch._async.client.monitoring
+# destroy elasticsearch._async.client.nodes
+# destroy elasticsearch._async.client.remote
+# destroy elasticsearch._async.client.rollup
+# destroy elasticsearch._async.client.searchable_snapshots
+# destroy elasticsearch._async.client.security
+# destroy elasticsearch._async.client.shutdown
+# destroy elasticsearch._async.client.slm
+# destroy elasticsearch._async.client.snapshot
+# destroy elasticsearch._async.client.sql
+# destroy elasticsearch._async.client.ssl
+# destroy elasticsearch._async.client.tasks
+# destroy elasticsearch._async.client.text_structure
+# destroy elasticsearch._async.client.transform
+# destroy elasticsearch._async.client.watcher
+# destroy elasticsearch._async.client.xpack
+# destroy urllib3
+# destroy aiohttp
+# destroy aiohttp.client_exceptions
+# destroy certifi
+# destroy source.views
+# destroy aiohttp.web
+# cleanup[3] wiping yaml
+# destroy yaml.error
+# destroy yaml.tokens
+# destroy yaml.events
+# destroy yaml.nodes
+# destroy yaml.reader
+# destroy yaml.scanner
+# destroy yaml.parser
+# destroy yaml.composer
+# destroy yaml.constructor
+# destroy yaml.resolver
+# destroy yaml.loader
+# destroy yaml.emitter
+# destroy yaml.serializer
+# destroy yaml.representer
+# destroy yaml.dumper
+# destroy yaml.cyaml
+# cleanup[3] wiping yaml._yaml
+# cleanup[3] wiping asyncpg
+# destroy asyncpg._version
+# destroy asyncpg.pgproto
+# destroy asyncpg.pool
+# cleanup[3] wiping asyncpg.connection
+# destroy asyncpg.introspection
+# destroy asyncpg.prepared_stmt
+# destroy asyncpg.serverversion
+# destroy asyncpg.transaction
+# destroy asyncpg.utils
+# cleanup[3] wiping asyncpg.cursor
+# cleanup[3] wiping asyncpg.connresource
+# cleanup[3] wiping asyncpg.connect_utils
+# destroy getpass
+# cleanup[3] wiping asyncpg.protocol
+# cleanup[3] wiping asyncpg.protocol.protocol
+# destroy hmac
+# destroy stringprep
+# cleanup[3] wiping asyncpg.types
+# cleanup[3] wiping asyncpg.pgproto.pgproto
+# destroy asyncpg.pgproto.types
+# destroy decimal
+# destroy ipaddress
+# cleanup[3] wiping asyncpg.exceptions
+# destroy asyncpg.exceptions._base
+# cleanup[3] wiping textwrap
+# cleanup[3] wiping termios
+# cleanup[3] wiping asyncpg.compat
+# cleanup[3] wiping _decimal
+# cleanup[3] wiping importlib.resources
+# cleanup[3] wiping importlib._common
+# destroy zipfile
+# cleanup[3] wiping urllib3.packages.six.moves.urllib.parse
+# cleanup[3] wiping urllib3.packages.six.moves.urllib
+# cleanup[3] wiping urllib3.packages.six.moves.http_client
+# cleanup[3] wiping urllib3.packages.six.moves
+# cleanup[3] wiping importlib.util
+# cleanup[3] wiping importlib.abc
+# cleanup[3] wiping logging.config
+# cleanup[3] wiping logging.handlers
+# cleanup[3] wiping concurrent.futures.thread
+# destroy queue
+# cleanup[3] wiping _queue
+# cleanup[3] wiping aiohttp._frozenlist
+# cleanup[3] wiping pickle
+# destroy _compat_pickle
+# cleanup[3] wiping _pickle
+# cleanup[3] wiping chardet
+# destroy chardet.enums
+# destroy chardet.charsetprober
+# destroy chardet.charsetgroupprober
+# destroy chardet.codingstatemachine
+# destroy chardet.escsm
+# destroy chardet.escprober
+# destroy chardet.latin1prober
+# destroy chardet.mbcssm
+# destroy chardet.utf8prober
+# destroy chardet.mbcharsetprober
+# destroy chardet.euctwfreq
+# destroy chardet.euckrfreq
+# destroy chardet.gb2312freq
+# destroy chardet.big5freq
+# destroy chardet.jisfreq
+# destroy chardet.chardistribution
+# destroy chardet.jpcntx
+# destroy chardet.sjisprober
+# destroy chardet.eucjpprober
+# destroy chardet.gb2312prober
+# destroy chardet.euckrprober
+# destroy chardet.cp949prober
+# destroy chardet.big5prober
+# destroy chardet.euctwprober
+# destroy chardet.mbcsgroupprober
+# destroy chardet.hebrewprober
+# destroy chardet.sbcharsetprober
+# destroy chardet.langbulgarianmodel
+# destroy chardet.langgreekmodel
+# destroy chardet.langhebrewmodel
+# destroy chardet.langrussianmodel
+# destroy chardet.langthaimodel
+# destroy chardet.langturkishmodel
+# destroy chardet.sbcsgroupprober
+# destroy chardet.universaldetector
+# destroy chardet.version
+# cleanup[3] wiping aiohttp.multipart
+# cleanup[3] wiping aiohttp.payload
+# cleanup[3] wiping aiohttp.http
+# cleanup[3] wiping aiohttp._websocket
+# cleanup[3] wiping aiohttp._http_parser
+# cleanup[3] wiping aiohttp._http_writer
+# cleanup[3] wiping http.cookies
+# cleanup[3] wiping aiohttp.helpers
+# cleanup[3] wiping aiohttp._helpers
+# cleanup[3] wiping async_timeout
+# cleanup[3] wiping urllib.request
+# cleanup[3] wiping urllib.error
+# cleanup[3] wiping urllib.response
+# cleanup[3] wiping netrc
+# destroy shlex
+# cleanup[3] wiping cgi
+# cleanup[3] wiping tempfile
+# cleanup[3] wiping pathlib
+# cleanup[3] wiping ntpath
+# cleanup[3] wiping http.server
+# destroy html
+# destroy http
+# destroy socketserver
+# cleanup[3] wiping shutil
+# destroy fnmatch
+# cleanup[3] wiping lzma
+# cleanup[3] wiping _lzma
+# cleanup[3] wiping bz2
+# destroy _compression
+# cleanup[3] wiping zlib
+# cleanup[3] wiping mimetypes
+# cleanup[3] wiping http.client
+# cleanup[3] wiping email.message
+# destroy uu
+# destroy quopri
+# cleanup[3] wiping email.iterators
+# cleanup[3] wiping email._encoded_words
+# cleanup[3] wiping email.parser
+# cleanup[3] wiping email.feedparser
+# cleanup[3] wiping email._policybase
+# cleanup[3] wiping email.header
+# cleanup[3] wiping html.entities
+# cleanup[3] wiping email.utils
+# destroy urllib
+# destroy urllib.parse
+# destroy urllib.response
+# destroy urllib.error
+# destroy urllib.request
+# cleanup[3] wiping email.charset
+# destroy email
+# cleanup[3] wiping email.encoders
+# cleanup[3] wiping email.errors
+# cleanup[3] wiping email.quoprimime
+# cleanup[3] wiping email.base64mime
+# cleanup[3] wiping email._parseaddr
+# destroy calendar
+# cleanup[3] wiping locale
+# destroy encodings
+# cleanup[3] wiping random
+# cleanup[3] wiping _sha512
+# cleanup[3] wiping _random
+# cleanup[3] wiping datetime
+# cleanup[3] wiping _datetime
+# cleanup[3] wiping yarl
+# destroy yarl._quoting
+# destroy yarl._url
+# cleanup[3] wiping yarl._quoting_c
+# cleanup[3] wiping cython_runtime
+# cleanup[3] wiping idna
+# destroy idna.package_data
+# destroy idna.intranges
+# destroy idna.core
+# cleanup[3] wiping unicodedata
+# cleanup[3] wiping bisect
+# cleanup[3] wiping _bisect
+# cleanup[3] wiping idna.idnadata
+# cleanup[3] wiping attr
+# destroy attr._compat
+# destroy attr._make
+# destroy attr._cmp
+# destroy attr._funcs
+# destroy attr._version_info
+# destroy attr._next_gen
+# destroy attr.exceptions
+# destroy attr.converters
+# destroy attr.filters
+# destroy attr.validators
+# cleanup[3] wiping attr.setters
+# cleanup[3] wiping attr._config
+# cleanup[3] wiping uuid
+# cleanup[3] wiping _uuid
+# destroy _uuid
+# cleanup[3] wiping copy
+# cleanup[3] wiping json
+# destroy json.decoder
+# destroy json.encoder
+# cleanup[3] wiping json.scanner
+# cleanup[3] wiping _json
+# cleanup[3] wiping hashlib
+# cleanup[3] wiping _blake2
+# cleanup[3] wiping _hashlib
+# cleanup[3] wiping asyncio
+# destroy asyncio.log
+# destroy asyncio.runners
+# destroy asyncio.queues
+# destroy asyncio.subprocess
+# destroy asyncio.threads
+# destroy asyncio.unix_events
+# cleanup[3] wiping asyncio.selector_events
+# cleanup[3] wiping asyncio.base_subprocess
+# cleanup[3] wiping asyncio.streams
+# cleanup[3] wiping asyncio.base_events
+# destroy asyncio.sslproto
+# destroy asyncio.staggered
+# destroy asyncio.trsock
+# cleanup[3] wiping asyncio.tasks
+# destroy asyncio.base_tasks
+# cleanup[3] wiping asyncio.locks
+# cleanup[3] wiping asyncio.transports
+# cleanup[3] wiping asyncio.protocols
+# cleanup[3] wiping asyncio.futures
+# destroy concurrent
+# destroy concurrent.futures
+# cleanup[3] wiping asyncio.events
+# cleanup[3] wiping _asyncio
+# cleanup[3] wiping asyncio.exceptions
+# cleanup[3] wiping contextvars
+# cleanup[3] wiping _contextvars
+# destroy _contextvars
+# cleanup[3] wiping asyncio.coroutines
+# cleanup[3] wiping asyncio.base_futures
+# destroy asyncio.format_helpers
+# cleanup[3] wiping inspect
+# destroy ast
+# destroy dis
+# destroy token
+# cleanup[3] wiping importlib.machinery
+# cleanup[3] wiping importlib
+# destroy importlib._common
+# destroy importlib.machinery
+# destroy importlib.abc
+# destroy importlib.util
+# destroy importlib.resources
+# cleanup[3] wiping importlib._bootstrap_external
+# cleanup[3] wiping importlib._bootstrap
+# destroy _frozen_importlib_external
+# cleanup[3] wiping _opcode
+# cleanup[3] wiping asyncio.constants
+# cleanup[3] wiping ssl
+# cleanup[3] wiping base64
+# cleanup[3] wiping binascii
+# cleanup[3] wiping struct
+# cleanup[3] wiping _struct
+# cleanup[3] wiping _ssl
+# cleanup[3] wiping socket
+# cleanup[3] wiping array
+# destroy array
+# cleanup[3] wiping _socket
+# cleanup[3] wiping concurrent.futures._base
+# cleanup[3] wiping logging
+# destroy logging.handlers
+# destroy logging.config
+# cleanup[3] wiping atexit
+# destroy atexit
+# cleanup[3] wiping string
+# cleanup[3] wiping _string
+# cleanup[3] wiping weakref
+# cleanup[3] wiping traceback
+# cleanup[3] wiping linecache
+# destroy tokenize
+# cleanup[3] wiping aiohttp.hdrs
+# cleanup[3] wiping multidict._multidict
+# cleanup[3] wiping multidict._multidict_base
+# cleanup[3] wiping platform
+# cleanup[3] wiping subprocess
+# cleanup[3] wiping selectors
+# cleanup[3] wiping math
+# cleanup[3] wiping select
+# cleanup[3] wiping _posixsubprocess
+# cleanup[3] wiping grp
+# cleanup[3] wiping pwd
+# cleanup[3] wiping warnings
+# cleanup[3] wiping threading
+# cleanup[3] wiping signal
+# cleanup[3] wiping errno
+# cleanup[3] wiping typing
+# cleanup[3] wiping re
+# destroy sre_compile
+# cleanup[3] wiping copyreg
+# cleanup[3] wiping sre_parse
+# cleanup[3] wiping _sre
+# cleanup[3] wiping enum
+# cleanup[3] wiping contextlib
+# cleanup[3] wiping functools
+# cleanup[3] wiping _functools
+# destroy _functools
+# cleanup[3] wiping types
+# cleanup[3] wiping collections.abc
+# cleanup[3] wiping collections
+# cleanup[3] wiping _collections
+# destroy _collections
+# cleanup[3] wiping reprlib
+# cleanup[3] wiping operator
+# cleanup[3] wiping _operator
+# cleanup[3] wiping keyword
+# cleanup[3] wiping itertools
+# cleanup[3] wiping heapq
+# cleanup[3] wiping _heapq
+# cleanup[3] wiping _locale
+# destroy _locale
+# cleanup[3] wiping os
+# cleanup[3] wiping os.path
+# destroy genericpath
+# cleanup[3] wiping posixpath
+# cleanup[3] wiping _collections_abc
+# cleanup[3] wiping stat
+# cleanup[3] wiping _stat
+# destroy _stat
+# cleanup[3] wiping io
+# cleanup[3] wiping abc
+# cleanup[3] wiping _abc
+# cleanup[3] wiping encodings.latin_1
+# cleanup[3] wiping _signal
+# cleanup[3] wiping encodings.utf_8
+# cleanup[3] wiping encodings.aliases
+# cleanup[3] wiping codecs
+# cleanup[3] wiping _codecs
+# cleanup[3] wiping time
+# cleanup[3] wiping posix
+# cleanup[3] wiping marshal
+# cleanup[3] wiping _io
+# cleanup[3] wiping _weakref
+# destroy _weakref
+# cleanup[3] wiping _warnings
+# cleanup[3] wiping _thread
+# cleanup[3] wiping _imp
+# destroy _imp
+# cleanup[3] wiping _frozen_importlib
+# cleanup[3] wiping sys
+# cleanup[3] wiping builtins
+# destroy decimal
+# destroy _queue
+# destroy _pickle
+# destroy _lzma
+# destroy _sha512
+# destroy _random
+# destroy _datetime
+# destroy _bisect
+# destroy _blake2
+# destroy _asyncio
+# destroy _struct
+# destroy _ssl
+# destroy _socket
+# destroy _string
+# destroy multidict._multidict
+# destroy _posixsubprocess
+# destroy grp
+# destroy pwd
+# destroy _signal
+# destroy marshal
+# destroy _thread
+# destroy concurrent.futures._base
+# destroy concurrent.futures.thread
+# destroy io
+# destroy _opcode
+# destroy reprlib
+# destroy asyncio.base_futures
+# destroy heapq
+# destroy asyncio.locks
+# destroy asyncio.protocols
+# destroy asyncio.streams
+# destroy contextvars
+# destroy errno
+# destroy subprocess
+# destroy asyncio.base_events
+# destroy asyncio.base_subprocess
+# destroy asyncio.constants
+# destroy asyncio.coroutines
+# destroy asyncio.events
+# destroy asyncio.exceptions
+# destroy asyncio.futures
+# destroy asyncio.selector_events
+# destroy asyncio.tasks
+# destroy asyncio.transports
+# destroy _heapq
+# destroy importlib
+# destroy shutil
+# destroy struct
+# destroy bz2
+# destroy lzma
+# destroy asyncpg
+# destroy textwrap
+# destroy _warnings
+# destroy select
+# destroy ntpath
+# destroy posix
+# destroy _sre
+# destroy sre_parse
+# destroy selectors
+# destroy posixpath
+# destroy stat
+# destroy asyncpg.cursor
+# destroy asyncpg.types
+# destroy asyncpg.connresource
+# destroy asyncpg.compat
+# destroy asyncpg.connection
+# destroy asyncpg.connect_utils
+# destroy asyncpg.exceptions
+# destroy asyncpg.protocol
+# destroy copyreg
+# destroy idna.idnadata
+# destroy bisect
+# destroy unicodedata
+# destroy collections.abc
+# destroy _collections_abc
+# destroy contextlib
+# destroy termios
+# destroy email._parseaddr
+# destroy email.base64mime
+# destroy email.quoprimime
+# destroy email.errors
+# destroy email.encoders
+# destroy email.charset
+# destroy email.utils
+# destroy email.header
+# destroy email._policybase
+# destroy email.feedparser
+# destroy email.parser
+# destroy email._encoded_words
+# destroy email.iterators
+# destroy email.message
+# destroy yaml
+# destroy json.scanner
+# destroy _json
+# destroy locale
+# destroy urllib3.packages.six.moves.urllib
+# destroy urllib3.packages.six.moves.urllib_parse
+# destroy urllib3.packages.six.moves.urllib.error
+# destroy urllib3.packages.six.moves.urllib.request
+# destroy urllib3.packages.six.moves.urllib.response
+# destroy urllib3.packages.six.moves.urllib.robotparser
+# destroy itertools
+# destroy operator
+# destroy urllib3.packages.six.moves
+# destroy _operator
+# destroy _frozen_importlib
+# clear sys.audit hooks
